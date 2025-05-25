@@ -8,3 +8,5 @@
 .DS_Store
 Thumbs.db
 
+# Local path config, do not track in Git
+config.ps1
