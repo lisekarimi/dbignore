@@ -1,0 +1,10 @@
+# ▶️ Config
+.gitattributes
+
+# ▶️ VSCode and other IDE settings
+.vscode/
+
+# ▶️ OS files
+.DS_Store
+Thumbs.db
+
