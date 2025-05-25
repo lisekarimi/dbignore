@@ -1,16 +1,26 @@
-# DBignore
+# 🛡️ dbignore
 
-**DBignore** is a simple script to mark unwanted files and folders as ignored by Dropbox, without deleting them from your local machine.
+**dbignore** is a simple script that marks unwanted files and folders as ignored by Dropbox — without deleting them from your local machine.
 
-Useful for Python developers and data scientists who want to keep `.env`, `.venv`, `dist/`, `logs`, `models`, and other generated files out of Dropbox sync.
+- 💡 Originally built for personal use, but shared publicly in case others find it helpful
+- 🧪 Simple, scriptable, and non-invasive — no installs, no Python dependency
+- 🔐 Privacy-aware: keeps sensitive files local without relying on Dropbox settings
 
+Built by a data scientist for data science workflows — but useful for **anyone** who wants to stop Dropbox from syncing sensitive or heavy files while keeping them local.
 
 ## 🔧 How It Works
 
 Dropbox supports marking files and folders as **"ignored"**. This script finds common junk, temp, and sensitive files/folders, and marks them so Dropbox stops syncing them — but leaves them on disk.
 
+You’ll see Dropbox status icons update in File Explorer:
 
-## ✅ Requirements
+- ✅ Green check = synced
+- ➖ Gray minus = ignored (local only)
+
+![](assets/img/status_icon.png)
+
+
+## ✅ Requirementss
 
 - Windows with PowerShell
 - Dropbox desktop app installed
@@ -32,22 +42,13 @@ choco install make
 git clone https://github.com/lisekarimi/dbignore.git
 cd dbignore
 ```
+
 2. Open `dropbox_ignore.ps1` and change this line to your own Dropbox project path:
 ```bash
 $parentFolder = "C:\Users\username\Dropbox"
 ```
 
-3. Open a terminal in the project folder and run
-```bash
-make ignore
-```
-
-This will run the PowerShell script and apply the ignore rules.
-
-
-## 📁 To Add More Files/Folders to Ignore
-
-Open `dropbox_ignore.ps1` and update these two arrays:
+3. Open `dropbox_ignore.ps1` and update the arrays with files, folders, or extensions to ignore.
 
 ```powershell
 $targetNames = @(
@@ -59,7 +60,14 @@ $extensions = @(
 )
 ```
 
-Save and re-run `make ignore`.
+Save
+
+4. Open a terminal in the project folder and run
+```bash
+make ignore
+```
+
+This will run the PowerShell script and apply the ignore rules.
 
 
 ## 🧹 Safe & Reversible
